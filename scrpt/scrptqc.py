@@ -197,27 +197,26 @@ def calculate_rma(x, y):
     
     # Pendiente
     if slope > 1.05:
-        st.write(f"La pendiente ({slope:.2f}) indica un sesgo positivo hacia valores más altos en los duplicados.")
+        st.write(f"The slope ({slope:.2f}) indicates a positive bias towards higher values in the duplicates.")
     elif slope < 0.95:
-        st.write(f"La pendiente ({slope:.2f}) indica un sesgo negativo hacia valores más bajos en los duplicados.")
+        st.write(f"The slope ({slope:.2f}) indicates a negative bias towards lower values in the duplicates.")
     else:
-        st.write(f"La pendiente ({slope:.2f}) está cerca de 1, sin sesgo sistemático relevante.")
+        st.write(f"The slope ({slope:.2f}) is close to 1, with no significant systematic bias.")
 
     # Intercepto
     if intercept > 0.05:
-        st.write(f"Intercepto positivo ({intercept:.2f}) sugiere que el duplicado reporta valores ligeramente mayores que el original.")
+        st.write(f"Positive intercept ({intercept:.2f}) suggests that the duplicate reports slightly higher values than the original.")
     elif intercept < -0.05:
-        st.write(f"Intercepto negativo ({intercept:.2f}) sugiere que el duplicado reporta valores ligeramente menores que el original (es bueno)")
-
+        st.write(f"Negative intercept ({intercept:.2f}) suggests that the duplicate reports slightly lower values than the original (which is good).")
     # R²
     if r2 >= 0.9:
-        st.write(f"Correlación muy buena (R² = {r2:.2f}).")
+        t.write(f"Very good correlation (R² = {r2:.2f}).")
     elif r2 >= 0.75:
-        st.write(f"Correlación aceptable (R² = {r2:.2f}), pero mejorable.")
+        st.write(f"Acceptable correlation (R² = {r2:.2f}), but still improvable.")
     elif r2 >= 0.55:
-        st.write(f"Correlación baja (R² = {r2:.2f}), indica alta variabilidad.")
+        st.write(f"Low correlation (R² = {r2:.2f}), indicating high variability.")
     else:
-        st.write(f"Correlación muy baja (R² = {r2:.2f}), no hay correlacion revisar si hay outliers.")
+        st.write(f"Very low correlation (R² = {r2:.2f}), no correlation; review for outliers.")
 
     #return slope, intercept, r2
 

@@ -147,6 +147,7 @@ def plot_map(df, ARD, ax):
     df = df.sort_values("difREL")
     df1 = df[['difREL']].copy()
     xs = df1.count()
+    df1 = df1.copy()
     df1.loc[:,'Order'] = np.arange(1, xs.values + 1)
     df1.loc[:,'FrexAcum'] = (df1['Order'] / xs.values) * 100
 

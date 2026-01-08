@@ -210,7 +210,7 @@ def calculate_rma(x, y):
         st.write(f"Negative intercept ({intercept:.2f}) suggests that the duplicate reports slightly lower values than the original (which is good).")
     # R²
     if r2 >= 0.9:
-        t.write(f"Very good correlation (R² = {r2:.2f}).")
+        st.write(f"Very good correlation (R² = {r2:.2f}).")
     elif r2 >= 0.75:
         st.write(f"Acceptable correlation (R² = {r2:.2f}), but still improvable.")
     elif r2 >= 0.55:

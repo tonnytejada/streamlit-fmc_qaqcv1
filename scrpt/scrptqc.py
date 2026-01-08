@@ -148,7 +148,17 @@ def plot_map(df, ARD, ax):
     df1 = df[['difREL']].copy()
     xs = df1.count()
     df1 = df1.copy()
+    
+    try:
+        max_val = int(xs.values)
+    except ValueError as e:
+        # Handle the case where xs.values cannot be converted to an integer
+        print(f"Error converting xs.values to int: {e}")
+        # Optionally, set a default value or raise a more informative error
+        max_val = 0 # Example default
+    
     df1.loc[:,'Order'] = np.arange(1, xs.values + 1)
+    
     df1.loc[:,'FrexAcum'] = (df1['Order'] / xs.values) * 100
 
     ax.plot(df1['difREL'], df1['FrexAcum'], 'ob', markersize=8, alpha=0.5)

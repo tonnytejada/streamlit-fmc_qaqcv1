@@ -146,9 +146,13 @@ def plot_map(df, ARD, ax):
     """Dibuja el mapa de frecuencia acumulada"""
     df = df.sort_values("difREL")
     df1 = df[['difREL']].copy()
-    xs = df1.count()
-    df1.loc[:,'Order'] = np.arange(1, xs.values + 1)
-    df1.loc[:,'FrexAcum'] = (df1['Order'] / xs.values) * 100
+    n = len(df1)
+    if n > 0:
+        df1.loc[:, 'Order'] = np.arange(1, n + 1)
+        df1.loc[:, 'FrexAcum'] = (df1['Order'] / n) * 100
+    else:
+        df1.loc[:, 'Order'] = []
+        df1.loc[:, 'FrexAcum'] = []
 
     ax.plot(df1['difREL'], df1['FrexAcum'], 'ob', markersize=8, alpha=0.5)
     ax.set_ylim(ymin=0, ymax=101)
